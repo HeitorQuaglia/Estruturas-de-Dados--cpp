@@ -42,7 +42,7 @@ public:
 		this->first = new_node;
 	}
 	T pop() {
-		if (this->is_empty()) throw std::exception("Queue is empty, pop is not possible");
+		if (this->is_empty()) throw std::exception("Queue is empty, popping is impossible");
 		T data = this->first->get_data();
 		Node<T>* free = this->first;
 		this->first = this->first->get_next();
@@ -50,7 +50,7 @@ public:
 		return data;
 	}
 	T peek() {
-		if (this->is_empty()) throw std::exception("Queue is empty, peek is not possible");
+		if (this->is_empty()) throw std::exception("Queue is empty, peeking is impossible");
 		return this->first->get_data();
 	}
 	int get_length() {

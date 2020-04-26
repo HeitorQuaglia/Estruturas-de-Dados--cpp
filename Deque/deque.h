@@ -1,4 +1,7 @@
 #pragma once
+#include <sstream>
+#include <string>
+#include <exception>
 
 template <typename T>
 class Node {
@@ -11,6 +14,9 @@ public:
 		this->data = data;
 		this->previous = nullptr;
 		this->next = nullptr;
+	}
+	T get_data() {
+		return this->data;
 	}
 	Node<T>* get_previous() {
 		return this->previous;
@@ -36,6 +42,9 @@ public:
 		this->head->set_next(this->head);
 		this->head->set_previous(this->head);
 	}
+	bool is_empty() {
+		return (this->head->get_next() == this->head);
+	}
 	int get_length() {
 		Node<T> *end = this->head;
 		int len = 0;
@@ -52,6 +61,15 @@ public:
 		new_node->set_previous(this->head->get_previous());
 		this->head->set_previous(new_node);
 		new_node->get_previous()->set_next(new_node);
+	}
+	T exclude_first() {
+		if (this->is_empty()) throw std::exception("Deque is empty, deleting is impossible");
+		Node<T>* free = this->head->get_next();
+		T data = free->get_data();
+		this->head->set_next(free->get_next());
+		free->get_next()->set_previous(this->head);
+		delete free;
+		return data;
 	}
 };
 
