@@ -36,5 +36,15 @@ public:
 		this->head->set_next(this->head);
 		this->head->set_previous(this->head);
 	}
+	int get_length() {
+		Node<T> end = this->head;
+		int len = 0;
+		while (end != this->head)
+		{
+			len++;
+			end = end->get_next();
+		}
+		return len;
+	}
 };
 
