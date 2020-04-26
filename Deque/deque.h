@@ -28,6 +28,13 @@ public:
 template <typename T>
 class Deque
 {
-
+private:
+	Node<T>* head;
+public:
+	Deque() {
+		this->head = new Node<T>();
+		this->head->set_next(this->head);
+		this->head->set_previous(this->head);
+	}
 };
 
