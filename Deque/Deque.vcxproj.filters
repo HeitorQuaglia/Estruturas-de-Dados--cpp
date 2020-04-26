@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="queue.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
+    <ClCompile Include="Deque.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
