@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pilha", "Pilha\Pilha.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fila", "Fila\Fila.vcxproj", "{066D3101-9867-42AC-9907-1CBC180EC871}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deque", "Deque\Deque.vcxproj", "{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{066D3101-9867-42AC-9907-1CBC180EC871}.Release|x64.Build.0 = Release|x64
 		{066D3101-9867-42AC-9907-1CBC180EC871}.Release|x86.ActiveCfg = Release|Win32
 		{066D3101-9867-42AC-9907-1CBC180EC871}.Release|x86.Build.0 = Release|Win32
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Debug|x64.ActiveCfg = Debug|x64
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Debug|x64.Build.0 = Debug|x64
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Debug|x86.Build.0 = Debug|Win32
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Release|x64.ActiveCfg = Release|x64
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Release|x64.Build.0 = Release|x64
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Release|x86.ActiveCfg = Release|Win32
+		{C2CC029E-E9E4-40F7-8882-EB82ADB494C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
