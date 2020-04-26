@@ -37,7 +37,7 @@ public:
 		this->head->set_previous(this->head);
 	}
 	int get_length() {
-		Node<T> end = this->head;
+		Node<T> *end = this->head;
 		int len = 0;
 		while (end != this->head)
 		{
@@ -45,6 +45,13 @@ public:
 			end = end->get_next();
 		}
 		return len;
+	}
+	void insert_end(T data) {
+		Node<T>* new_node = new Node<T>(data);
+		new_node->set_next(this->head);
+		new_node->set_previous(this->head->get_previous());
+		this->head->set_previous(new_node);
+		new_node->get_previous()->set_next(new_node);
 	}
 };
 
