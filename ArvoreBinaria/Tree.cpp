@@ -1,4 +1,5 @@
 #include "Tree.h"
+#include <iostream>
 
 Tree::Tree()
 {
@@ -12,7 +13,7 @@ void Tree::insert(int value)
 	}
 	else {
 		this->insertAux(this->root, value);
-	}
+	} 
 }
 
 void Tree::insertAux(Node* node, int value)
@@ -34,5 +35,19 @@ void Tree::insertAux(Node* node, int value)
 		else {
 			this->insertAux(node->get_right(), value);
 		}
+	}
+}
+
+Node* Tree::get_root()
+{
+	return this->root;
+}
+
+void Tree::printTree(Node* node)
+{
+	if (node != nullptr) {
+		printTree(node->get_left());
+		std::cout << node->get_value() << " ";
+		printTree(node->get_right());
 	}
 }
