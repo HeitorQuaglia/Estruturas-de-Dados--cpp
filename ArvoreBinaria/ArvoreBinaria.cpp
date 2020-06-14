@@ -16,8 +16,13 @@ int main()
 	tree->insert(4);
 	tree->insert(7);
 
-	std::cout << "Em ordem: " << std::endl;
+	std::cout << "Em ordem: ";
+	
 	tree->print_tree(tree->get_root());
 
-	std::cout << "Existe 8: " << tree->has(13);
+	std::cout << std::endl;
+	
+	std::cout << "Existe 13: " << tree->has(13) << std::endl;
+
+	std::cout << "Tamanho: " << tree->length() << std::endl;
 }

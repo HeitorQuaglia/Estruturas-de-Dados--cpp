@@ -69,3 +69,19 @@ bool Tree::has_aux(Node* node, int value) {
 	}
 	return this->has_aux(node->get_right(), value);
 }
+
+int Tree::length()
+{
+	return this->count(this->root);
+}
+
+int Tree::count(Node* node)
+{
+	if (node == nullptr) return 0;
+	
+	return (
+		this->count(node->get_left())
+		+ 1
+		+ this->count(node->get_right())
+		);
+}
