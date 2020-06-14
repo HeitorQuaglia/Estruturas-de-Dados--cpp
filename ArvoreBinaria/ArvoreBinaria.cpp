@@ -25,4 +25,16 @@ int main()
 	std::cout << "Existe 13: " << tree->has(13) << std::endl;
 
 	std::cout << "Tamanho: " << tree->length() << std::endl;
+
+	tree->remove(6);
+
+	std::cout << "Existe 6: " << tree->has(6) << std::endl;
+
+	std::cout << "Tamanho: " << tree->length() << std::endl;
+
+	std::cout << "Em ordem: ";
+
+	tree->print_tree(tree->get_root());
+
+	std::cout << std::endl;
 }

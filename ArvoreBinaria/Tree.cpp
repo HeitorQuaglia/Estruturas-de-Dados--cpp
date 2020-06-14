@@ -80,10 +80,70 @@ int Tree::length()
 int Tree::count(Node* node)
 {
 	if (node == nullptr) return 0;
-	
+
 	return (
 		this->count(node->get_left())
 		+ 1
 		+ this->count(node->get_right())
 		);
+}
+
+Node* Tree::find(int value, Node** parent)
+{
+	Node* node = this->root;
+	*parent = nullptr;
+	while (node != nullptr) {
+		if (node->get_value() == value) return node;
+		*parent = node;
+		if (value < node->get_value())
+			node = node->get_left();
+		else
+			node = node->get_right();
+	}
+	return nullptr;
+}
+
+bool Tree::remove(int value)
+{
+	Node *parent, *node, *p, *q;
+
+	parent = nullptr;
+
+	node = this->find(value, &parent);
+	
+	if (node == nullptr) return false;
+	
+	if (node->get_left() == nullptr || node->get_right() == nullptr) {
+		if (node->get_left() == nullptr) {
+			q = node->get_right();
+		}
+		else {
+			q = node->get_left();
+		}
+	}
+	else {
+		p = node;
+		q = node->get_left();
+		while (q->get_left() != nullptr) {
+			p = q;
+			q = q->get_right();
+		}
+		if (p != node) {
+			p->set_right(q->get_left());
+			q->set_left(node->get_left());
+		}
+		q->set_right(node->get_right());
+	}
+	if (parent == nullptr) {
+		delete node;
+		return true;
+	}
+	if (value < parent->get_value()) {
+		parent->set_left(q);
+	}
+	else {
+		parent->set_right(q);
+	}
+	delete node;
+	return true;
 }
