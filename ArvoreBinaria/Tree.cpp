@@ -12,11 +12,11 @@ void Tree::insert(int value)
 		root = new Node(value);
 	}
 	else {
-		this->insertAux(this->root, value);
-	} 
+		this->insert_aux(this->root, value);
+	}
 }
 
-void Tree::insertAux(Node* node, int value)
+void Tree::insert_aux(Node* node, int value)
 {
 	if (value < node->get_value()) {
 		if (node->get_left() == nullptr) {
@@ -24,7 +24,7 @@ void Tree::insertAux(Node* node, int value)
 			node->set_left(newNode);
 		}
 		else {
-			this->insertAux(node->get_left(), value);
+			this->insert_aux(node->get_left(), value);
 		}
 	}
 	else if (value > node->get_value()) {
@@ -33,7 +33,7 @@ void Tree::insertAux(Node* node, int value)
 			node->set_right(newNode);
 		}
 		else {
-			this->insertAux(node->get_right(), value);
+			this->insert_aux(node->get_right(), value);
 		}
 	}
 }
@@ -43,11 +43,29 @@ Node* Tree::get_root()
 	return this->root;
 }
 
-void Tree::printTree(Node* node)
+void Tree::print_tree(Node* node)
 {
 	if (node != nullptr) {
-		printTree(node->get_left());
+		print_tree(node->get_left());
 		std::cout << node->get_value() << " ";
-		printTree(node->get_right());
+		print_tree(node->get_right());
 	}
+}
+
+bool Tree::has(int value)
+{
+	return has_aux(this->root, value);
+}
+
+bool Tree::has_aux(Node* node, int value) {
+	if (node == nullptr) {
+		return false;
+	}
+	if (node->get_value() == value) {
+		return true;
+	}
+	if (node->get_value() > value) {
+		return this->has_aux(node->get_left(), value);
+	}
+	return this->has_aux(node->get_right(), value);
 }

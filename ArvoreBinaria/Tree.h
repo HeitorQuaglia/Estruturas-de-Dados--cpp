@@ -4,11 +4,13 @@ class Tree
 {
 private:
 	Node* root;
+	bool has_aux(Node* node, int value);
+	void insert_aux(Node* node, int value);
 public:
 	Tree();
 	void insert(int value);
-	void insertAux(Node* node, int value);
 	Node* get_root();
-	void printTree(Node* node);
+	void print_tree(Node* node);
+	bool has(int value);
 };
 
