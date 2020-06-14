@@ -46,9 +46,11 @@ Node* Tree::get_root()
 void Tree::print_tree(Node* node)
 {
 	if (node != nullptr) {
+		std::cout << node->get_value();
+		std::cout << "(";
 		print_tree(node->get_left());
-		std::cout << node->get_value() << " ";
 		print_tree(node->get_right());
+		std::cout << ")";
 	}
 }
 
